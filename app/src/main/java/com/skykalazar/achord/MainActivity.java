@@ -20,6 +20,8 @@ import com.skykalazar.achord.databinding.ActivityMainBinding;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
@@ -36,6 +38,15 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.rv1);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.hasFixedSize();
+
+        ArrayList<Song> songs = new ArrayList<>();
+
+        songs.add(new Song("Age of Oppression"));
+        songs.add(new Song("Stand by Me"));
+        songs.add(new Song("Девушка из Нагасаки"));
+
+        SongAdapter adapter = new SongAdapter(songs);
+        recyclerView.setAdapter(adapter);
 
         setSupportActionBar(binding.toolbar);
 
