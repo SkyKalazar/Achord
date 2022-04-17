@@ -10,8 +10,10 @@
         android:id="@+id/Title"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:fontFamily="serif"
         android:text="Hello"
-        android:textSize="20sp"
-        android:fontFamily="serif"/>
+        android:textColor="#CC2233"
+        android:textSize="20sp" />
+    
 
 </LinearLayout>
