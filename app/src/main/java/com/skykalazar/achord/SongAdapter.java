@@ -31,6 +31,7 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.title.setText(songs.get(position).getTitle());
+        holder.artist.setText(songs.get(position).getArtist());
     }
 
     @Override
@@ -41,11 +42,13 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView title;
+        TextView artist;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             title = itemView.findViewById(R.id.Title);
+            artist = itemView.findViewById(R.id.Artist);
         }
     }
 }

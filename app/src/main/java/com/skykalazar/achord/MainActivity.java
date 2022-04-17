@@ -41,9 +41,9 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<Song> songs = new ArrayList<>();
 
-        songs.add(new Song("Age of Oppression"));
-        songs.add(new Song("Stand by Me"));
-        songs.add(new Song("Девушка из Нагасаки"));
+        songs.add(new Song("Age of Oppression", "Malukah"));
+        songs.add(new Song("Crazy", "Gnarls Barkley"));
+        songs.add(new Song("Девушка из Нагасаки", "Вера Инбер"));
 
         SongAdapter adapter = new SongAdapter(songs);
         recyclerView.setAdapter(adapter);
