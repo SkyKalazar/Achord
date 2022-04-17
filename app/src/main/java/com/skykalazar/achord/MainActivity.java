@@ -12,6 +12,8 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.skykalazar.achord.databinding.ActivityMainBinding;
 
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,10 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        recyclerView = findViewById(R.id.rv1);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.hasFixedSize();
 
         setSupportActionBar(binding.toolbar);
 
