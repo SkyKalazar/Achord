@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="#CCCCFF">
+    android:background="#F5F5DC">
 
 
     <TextView
@@ -13,7 +13,7 @@
         android:fontFamily="serif"
         android:text="Title"
         android:layout_marginLeft="20dp"
-        android:textColor="#1B2F9A"
+        android:textColor="#000000"
         android:textSize="20sp" />
 
     <TextView
@@ -23,7 +23,7 @@
         android:fontFamily="sans-serif-medium"
         android:text="Artist"
         android:layout_marginLeft="20dp"
-        android:textColor="#88212B"
+        android:textColor="#000080"
         android:textSize="15sp" />
     
 
