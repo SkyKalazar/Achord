@@ -1,4 +1,4 @@
-package com.skykalazar.achord.UI.Songs;
+package com.skykalazar.achord.ViewModel;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

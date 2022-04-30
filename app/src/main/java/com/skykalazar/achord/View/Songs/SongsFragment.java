@@ -1,4 +1,4 @@
-package com.skykalazar.achord.UI.Songs;
+package com.skykalazar.achord.View.Songs;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.skykalazar.achord.Model.Song;
 import com.skykalazar.achord.R;
+import com.skykalazar.achord.ViewModel.SongsViewModel;
 import com.skykalazar.achord.databinding.SongsFragmentBinding;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.skykalazar.achord.UI.AddSong;
+package com.skykalazar.achord.View.AddSong;
 
 import androidx.lifecycle.ViewModel;
 

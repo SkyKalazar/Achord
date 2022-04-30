@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_songs"
-        android:name="com.skykalazar.achord.UI.Songs.SongsFragment"
+        android:name="com.skykalazar.achord.View.Songs.SongsFragment"
         android:label="@string/menu_songs"
         tools:layout="@layout/songs_fragment" >
         <action
@@ -17,18 +17,18 @@
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.skykalazar.achord.UI.gallery.GalleryFragment"
+        android:name="com.skykalazar.achord.View.gallery.GalleryFragment"
         android:label="@string/menu_gallery"
         tools:layout="@layout/gallery_fragment" />
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.skykalazar.achord.UI.slideshow.SlideshowFragment"
+        android:name="com.skykalazar.achord.View.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/slideshow_fragment" />
     <fragment
         android:id="@+id/nav_AddSong"
-        android:name="com.skykalazar.achord.UI.AddSong.AddSongFragment"
+        android:name="com.skykalazar.achord.View.AddSong.AddSongFragment"
         android:label="Add song"
         tools:layout="@layout/add_song_fragment" >
         <action

@@ -1,4 +1,4 @@
-package com.skykalazar.achord.UI.AddSong;
+package com.skykalazar.achord.View.AddSong;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,7 +13,7 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.skykalazar.achord.Model.Song;
 import com.skykalazar.achord.R;
-import com.skykalazar.achord.UI.Songs.SongsViewModel;
+import com.skykalazar.achord.ViewModel.SongsViewModel;
 import com.skykalazar.achord.databinding.AddSongFragmentBinding;
 
 

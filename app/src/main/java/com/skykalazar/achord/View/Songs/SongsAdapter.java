@@ -1,4 +1,4 @@
-package com.skykalazar.achord.UI.Songs;
+package com.skykalazar.achord.View.Songs;
 
 import android.view.LayoutInflater;
 import android.view.View;
