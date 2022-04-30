@@ -10,18 +10,19 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.skykalazar.achord.databinding.FragmentHomeBinding;
+import com.skykalazar.achord.databinding.FragmentSongsBinding;
+
 
 public class SongsFragment extends Fragment {
 
-    private FragmentHomeBinding binding;
+    private FragmentSongsBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         SongsViewModel songsViewModel =
                 new ViewModelProvider(this).get(SongsViewModel.class);
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentSongsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textHome;
