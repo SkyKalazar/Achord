@@ -10,22 +10,26 @@ import java.util.ArrayList;
 
 public class SongsViewModel extends ViewModel {
 
-    private MutableLiveData<ArrayList<Song>> songs;
+    private MutableLiveData<ArrayList<Song>> liveDataSongs;
+    private ArrayList<Song> songs;
 
     public SongsViewModel() {
-        songs = new MutableLiveData<>();
+        liveDataSongs = new MutableLiveData<>();
+        songs = new ArrayList<>();
 
-        ArrayList<Song> starter = new ArrayList<>();
+        songs.add(new Song("Age of Oppression", "Malukah"));
+        songs.add(new Song("Crazy", "Gnarls Barkley"));
+        songs.add(new Song("Девушка из Нагасаки", "Вера Инбер"));
 
-        starter.add(new Song("Age of Oppression", "Malukah"));
-        starter.add(new Song("Crazy", "Gnarls Barkley"));
-        starter.add(new Song("Девушка из Нагасаки", "Вера Инбер"));
-
-        songs.setValue(starter);
+        liveDataSongs.setValue(songs);
 
     }
 
     public LiveData<ArrayList<Song>> getSongs() {
-        return songs;
+        return liveDataSongs;
+    }
+
+    public void addSong(Song newSong) {
+        songs.add(newSong);
     }
 }

@@ -27,7 +27,7 @@ public class SongsFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        SongsViewModel songsViewModel = new ViewModelProvider(this).get(SongsViewModel.class);
+        SongsViewModel songsViewModel = new ViewModelProvider(requireActivity()).get(SongsViewModel.class);
 
         binding = FragmentSongsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
