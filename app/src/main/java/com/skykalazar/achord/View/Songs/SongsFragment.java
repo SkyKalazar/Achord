@@ -25,10 +25,12 @@ public class SongsFragment extends Fragment {
 
     private SongsFragmentBinding binding;
     private RecyclerView recyclerView;
+    private SongsViewModel songsViewModel;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        SongsViewModel songsViewModel = new ViewModelProvider(requireActivity()).get(SongsViewModel.class);
+        songsViewModel = new ViewModelProvider(requireActivity()).get(SongsViewModel.class);
 
         binding = SongsFragmentBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
@@ -38,18 +40,17 @@ public class SongsFragment extends Fragment {
         recyclerView.hasFixedSize();
 
 
+        return root;
+    }
+
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) { super.onViewCreated(view, savedInstanceState);
+
         songsViewModel.getSongs().observe(getViewLifecycleOwner(), new Observer<ArrayList<Song>>() {
             @Override
             public void onChanged(ArrayList<Song> songs) {
                 recyclerView.setAdapter(new SongsAdapter(songs));
             }
         });
-        return root;
-    }
-
-    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
         binding.AddSong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

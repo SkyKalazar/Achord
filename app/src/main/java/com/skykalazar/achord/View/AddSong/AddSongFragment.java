@@ -21,6 +21,8 @@ public class AddSongFragment extends Fragment {
 
     private AddSongFragmentBinding binding;
     private SongsViewModel songsViewModel;
+    private EditText title;
+    private EditText artist;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -28,6 +30,8 @@ public class AddSongFragment extends Fragment {
         songsViewModel = new ViewModelProvider(requireActivity()).get(SongsViewModel.class);
 
         binding = AddSongFragmentBinding.inflate(inflater, container, false);
+        title = binding.NewTitle;
+        artist = binding.NewArtist;
         return binding.getRoot();
 
     }
@@ -38,8 +42,6 @@ public class AddSongFragment extends Fragment {
         binding.buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EditText title = binding.NewTitle;
-                EditText artist = binding.NewArtist;
                 songsViewModel.addSong(new Song(title.getText().toString(), artist.getText().toString()));
                 NavHostFragment.findNavController(AddSongFragment.this).navigate(R.id.action_nav_AddSong_to_nav_songs);
             }
