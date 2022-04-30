@@ -1,35 +1,32 @@
 package com.skykalazar.achord.ViewModel;
 
+import android.app.Application;
+
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.skykalazar.achord.Model.Song;
+import com.skykalazar.achord.Repositories.SongsRepository;
 
 import java.util.ArrayList;
 
-public class SongsViewModel extends ViewModel {
+public class SongsViewModel extends AndroidViewModel {
 
-    private MutableLiveData<ArrayList<Song>> liveDataSongs;
-    private ArrayList<Song> songs;
+    private final SongsRepository repository;
 
-    public SongsViewModel() {
-        liveDataSongs = new MutableLiveData<>();
-        songs = new ArrayList<>();
-
-        songs.add(new Song("Age of Oppression", "Malukah"));
-        songs.add(new Song("Crazy", "Gnarls Barkley"));
-        songs.add(new Song("Девушка из Нагасаки", "Вера Инбер"));
-
-        liveDataSongs.setValue(songs);
+    public SongsViewModel(Application app) {
+        super(app);
+        repository = SongsRepository.getInstance(app);
 
     }
 
     public LiveData<ArrayList<Song>> getSongs() {
-        return liveDataSongs;
+        return repository.getAllSongs();
     }
 
     public void addSong(Song newSong) {
-        songs.add(newSong);
+       repository.insert(newSong);
     }
 }
