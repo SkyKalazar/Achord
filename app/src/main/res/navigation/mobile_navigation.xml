@@ -22,4 +22,9 @@
         android:name="com.skykalazar.achord.UI.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/fragment_AddSong"
+        android:name="com.skykalazar.achord.UI.AddSong.fragment_AddSong"
+        android:label="fragment__add_song"
+        tools:layout="@layout/fragment_add_song" />
 </navigation>
