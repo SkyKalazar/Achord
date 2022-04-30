@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_songs">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.skykalazar.achord.ui.home.HomeFragment"
-        android:label="@string/menu_home"
+        android:id="@+id/nav_songs"
+        android:name="com.skykalazar.achord.ui.Songs.SongsFragment"
+        android:label="@string/menu_songs"
         tools:layout="@layout/fragment_home" />
 
     <fragment
