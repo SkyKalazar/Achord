@@ -36,7 +36,6 @@ public class SongsFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(binding.getRoot().getContext()));
         recyclerView.hasFixedSize();
 
-        recyclerView.setAdapter(new SongsAdapter(songsViewModel.getSongs().getValue()));
 
         songsViewModel.getSongs().observe(getViewLifecycleOwner(), new Observer<ArrayList<Song>>() {
             @Override
