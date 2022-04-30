@@ -10,6 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.skykalazar.achord.databinding.FragmentGalleryBinding;
+
 public class GalleryFragment extends Fragment {
 
     private FragmentGalleryBinding binding;
