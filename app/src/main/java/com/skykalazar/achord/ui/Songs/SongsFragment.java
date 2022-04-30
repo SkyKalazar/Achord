@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.skykalazar.achord.Model.Song;
+import com.skykalazar.achord.R;
 import com.skykalazar.achord.databinding.FragmentSongsBinding;
 
 import java.util.ArrayList;
@@ -49,13 +50,13 @@ public class SongsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-//        binding.fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                NavHostFragment.findNavController(FirstFragment.this)
-//                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
-//            }
-//        });
+        binding.AddSong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(SongsFragment.this)
+                        .navigate(R.id.action_nav_songs_to_fragment_AddSong);
+            }
+        });
     }
 
     @Override

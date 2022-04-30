@@ -33,7 +33,7 @@ public class fragment_AddSong extends Fragment {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(fragment_AddSong.this)
-                        .navigate(R.id.action_SecondFragment_to_FirstFragment);
+                        .navigate(R.id.action_fragment_AddSong_to_nav_songs);
             }
         });
     }
