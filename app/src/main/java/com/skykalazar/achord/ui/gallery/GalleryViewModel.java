@@ -1,4 +1,4 @@
-package com.skykalazar.achord.ui.gallery;
+package com.skykalazar.achord.UI.gallery;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

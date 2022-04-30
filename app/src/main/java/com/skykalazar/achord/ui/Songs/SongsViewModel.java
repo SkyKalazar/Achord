@@ -1,19 +1,31 @@
-package com.skykalazar.achord.ui.Songs;
+package com.skykalazar.achord.UI.Songs;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-import androidx.recyclerview.widget.RecyclerView;
+
+import com.skykalazar.achord.Model.Song;
+
+import java.util.ArrayList;
 
 public class SongsViewModel extends ViewModel {
 
-    private MutableLiveData<RecyclerView> songs;
+    private MutableLiveData<ArrayList<Song>> songs;
 
-    public SongsViewModel(RecyclerView recyclerView) {
-        songs = new MutableLiveData<>(recyclerView);
+    public SongsViewModel() {
+        songs = new MutableLiveData<>();
+
+        ArrayList<Song> starter = new ArrayList<>();
+
+        starter.add(new Song("Age of Oppression", "Malukah"));
+        starter.add(new Song("Crazy", "Gnarls Barkley"));
+        starter.add(new Song("Девушка из Нагасаки", "Вера Инбер"));
+
+        songs.setValue(starter);
+
     }
 
-    public LiveData<RecyclerView> getSongs() {
+    public LiveData<ArrayList<Song>> getSongs() {
         return songs;
     }
 }

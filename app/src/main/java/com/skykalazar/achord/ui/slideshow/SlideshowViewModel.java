@@ -1,4 +1,4 @@
-package com.skykalazar.achord.ui.slideshow;
+package com.skykalazar.achord.UI.slideshow;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

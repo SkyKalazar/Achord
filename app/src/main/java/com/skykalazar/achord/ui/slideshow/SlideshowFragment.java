@@ -1,4 +1,4 @@
-package com.skykalazar.achord.ui.slideshow;
+package com.skykalazar.achord.UI.slideshow;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,8 +9,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-
-import com.skykalazar.achord.databinding.FragmentSlideshowBinding;
 
 public class SlideshowFragment extends Fragment {
 
