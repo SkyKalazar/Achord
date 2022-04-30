@@ -15,21 +15,21 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.skykalazar.achord.Model.Song;
 import com.skykalazar.achord.R;
-import com.skykalazar.achord.databinding.FragmentSongsBinding;
+import com.skykalazar.achord.databinding.SongsFragmentBinding;
 
 import java.util.ArrayList;
 
 
 public class SongsFragment extends Fragment {
 
-    private FragmentSongsBinding binding;
+    private SongsFragmentBinding binding;
     private RecyclerView recyclerView;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         SongsViewModel songsViewModel = new ViewModelProvider(requireActivity()).get(SongsViewModel.class);
 
-        binding = FragmentSongsBinding.inflate(inflater, container, false);
+        binding = SongsFragmentBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         recyclerView = binding.rv1;

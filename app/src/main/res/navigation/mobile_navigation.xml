@@ -9,7 +9,7 @@
         android:id="@+id/nav_songs"
         android:name="com.skykalazar.achord.UI.Songs.SongsFragment"
         android:label="@string/menu_songs"
-        tools:layout="@layout/fragment_songs" >
+        tools:layout="@layout/songs_fragment" >
         <action
             android:id="@+id/action_nav_songs_to_nav_AddSong"
             app:destination="@id/nav_AddSong" />
@@ -19,18 +19,18 @@
         android:id="@+id/nav_gallery"
         android:name="com.skykalazar.achord.UI.gallery.GalleryFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/gallery_fragment" />
 
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.skykalazar.achord.UI.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/slideshow_fragment" />
     <fragment
         android:id="@+id/nav_AddSong"
-        android:name="com.skykalazar.achord.UI.AddSong.fragment_AddSong"
+        android:name="com.skykalazar.achord.UI.AddSong.AddSongFragment"
         android:label="Add song"
-        tools:layout="@layout/fragment_add_song" >
+        tools:layout="@layout/add_song_fragment" >
         <action
             android:id="@+id/action_nav_AddSong_to_nav_songs"
             app:destination="@id/nav_songs" />
