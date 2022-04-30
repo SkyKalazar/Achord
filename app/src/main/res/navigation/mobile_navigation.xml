@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_songs"
-        android:name="com.skykalazar.achord.ui.Songs.SongsFragment"
+        android:name="com.skykalazar.achord.ui.Songs.FragmentSongs"
         android:label="@string/menu_songs"
         tools:layout="@layout/fragment_songs" />
 

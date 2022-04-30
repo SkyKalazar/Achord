@@ -3,17 +3,17 @@ package com.skykalazar.achord.ui.Songs;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class SongsViewModel extends ViewModel {
 
-    private final MutableLiveData<String> mText;
+    private MutableLiveData<RecyclerView> songs;
 
-    public SongsViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is musical symphony that hasn't been seen before");
+    public SongsViewModel(RecyclerView recyclerView) {
+        songs = new MutableLiveData<>(recyclerView);
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public LiveData<RecyclerView> getSongs() {
+        return songs;
     }
 }
