@@ -51,5 +51,10 @@
         android:id="@+id/nav_lyricsFragment"
         android:name="com.skykalazar.achord.View.Lyrics.LyricsFragment"
         android:label="Lyrics"
-        tools:layout="@layout/lyrics_fragment" />
+        tools:layout="@layout/lyrics_fragment">
+        <action
+            android:id="@+id/action_from_Lyrics_to_Details"
+            app:destination="@+id/nav_songDetailsFragment"/>
+    </fragment>
+
 </navigation>

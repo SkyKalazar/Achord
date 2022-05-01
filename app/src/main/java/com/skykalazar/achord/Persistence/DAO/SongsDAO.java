@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import com.skykalazar.achord.Model.Song;
 
@@ -14,6 +15,9 @@ public interface SongsDAO {
 
     @Insert
     void insert(Song newSong);
+
+    @Update
+    void update(Song song);
 
     @Query("select * from songs_table order by id")
     LiveData<List<Song>> getAllSongs();

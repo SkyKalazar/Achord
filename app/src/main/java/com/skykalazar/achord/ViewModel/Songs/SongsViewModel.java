@@ -30,6 +30,9 @@ public class SongsViewModel extends AndroidViewModel {
     public void addSong(Song newSong) {
        repository.insert(newSong);
     }
+    public void updateSong() {
+        repository.update(currentSong.getValue());
+    }
 
     public LiveData<Song> getCurrentSong() {
         return currentSong;
