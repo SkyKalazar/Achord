@@ -7,7 +7,6 @@ import androidx.room.Query;
 
 import com.skykalazar.achord.Model.Song;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Dao
@@ -18,6 +17,9 @@ public interface SongsDAO {
 
     @Query("select * from songs_table order by id")
     LiveData<List<Song>> getAllSongs();
+
+    @Query("delete from songs_table")
+    void nukeTable();
 
 
 }

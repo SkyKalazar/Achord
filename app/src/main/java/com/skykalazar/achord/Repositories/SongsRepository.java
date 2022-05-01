@@ -42,4 +42,8 @@ public class SongsRepository {
     public void insert(Song newSong) {
         executorService.execute(() -> songsDAO.insert(newSong));
     }
+
+    private void deleteAllSongs() {
+        executorService.execute(songsDAO::nukeTable);
+    }
 }
