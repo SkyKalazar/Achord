@@ -21,11 +21,12 @@ import com.skykalazar.achord.databinding.SongsFragmentBinding;
 import java.util.List;
 
 
-public class SongsFragment extends Fragment {
+public class SongsFragment extends Fragment implements SongsAdapter.SongOnClickListener {
 
     private SongsFragmentBinding binding;
     private RecyclerView recyclerView;
     private SongsViewModel songsViewModel;
+    private SongsAdapter.SongOnClickListener callback;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -39,6 +40,8 @@ public class SongsFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(binding.getRoot().getContext()));
         recyclerView.hasFixedSize();
 
+        callback = this;
+
 
         return root;
     }
@@ -48,7 +51,7 @@ public class SongsFragment extends Fragment {
         songsViewModel.getSongs().observe(getViewLifecycleOwner(), new Observer<List<Song>>() {
             @Override
             public void onChanged(List<Song> songs) {
-                recyclerView.setAdapter(new SongsAdapter(songs));
+                recyclerView.setAdapter(new SongsAdapter(songs, callback));
             }
         });
         binding.AddSong.setOnClickListener(new View.OnClickListener() {
@@ -63,5 +66,10 @@ public class SongsFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    @Override
+    public void onClick(Song song) {
+        NavHostFragment.findNavController(SongsFragment.this).navigate(R.id.action_nav_songs_to_nav_songDetailsFragment);
     }
 }

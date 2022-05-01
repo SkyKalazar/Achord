@@ -14,8 +14,8 @@
             android:id="@+id/action_nav_songs_to_nav_AddSong"
             app:destination="@id/nav_AddSong" />
         <action
-            android:id="@+id/action_nav_songs_to_songDetailsFragment2"
-            app:destination="@id/songDetailsFragment" />
+            android:id="@+id/action_nav_songs_to_nav_songDetailsFragment"
+            app:destination="@id/nav_songDetailsFragment" />
     </fragment>
 
     <fragment
@@ -39,8 +39,8 @@
             app:destination="@id/nav_songs" />
     </fragment>
     <fragment
-        android:id="@+id/songDetailsFragment"
+        android:id="@+id/nav_songDetailsFragment"
         android:name="com.skykalazar.achord.View.SongDetails.SongDetailsFragment"
-        android:label="song_details_fragment"
+        android:label="Details"
         tools:layout="@layout/song_details_fragment" />
 </navigation>
