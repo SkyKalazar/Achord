@@ -18,6 +18,8 @@ import com.skykalazar.achord.R;
 import com.skykalazar.achord.ViewModel.Songs.SongsViewModel;
 import com.skykalazar.achord.databinding.SongDetailsFragmentBinding;
 
+import java.util.Objects;
+
 
 public class SongDetailsFragment extends Fragment {
 
@@ -55,6 +57,15 @@ public class SongDetailsFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(SongDetailsFragment.this).navigate(R.id.action_nav_songDetailsFragment_to_nav_lyricsFragment);
+            }
+        });
+        binding.SaveSongDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Objects.requireNonNull(songsViewModel.getCurrentSong().getValue()).setTitle(currentTitle.getText().toString());
+                Objects.requireNonNull(songsViewModel.getCurrentSong().getValue()).setArtist(currentArtist.getText().toString());
+                songsViewModel.updateSong();
+                NavHostFragment.findNavController(SongDetailsFragment.this).navigate(R.id.details_to_home);
             }
         });
     }
