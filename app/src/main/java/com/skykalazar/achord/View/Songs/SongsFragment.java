@@ -54,8 +54,7 @@ public class SongsFragment extends Fragment {
         binding.AddSong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(SongsFragment.this)
-                        .navigate(R.id.action_nav_songs_to_nav_AddSong);
+                NavHostFragment.findNavController(SongsFragment.this).navigate(R.id.action_nav_songs_to_nav_AddSong);
             }
         });
     }

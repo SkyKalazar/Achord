@@ -8,7 +8,6 @@ import com.skykalazar.achord.Model.Song;
 import com.skykalazar.achord.Persistence.DAO.SongsDAO;
 import com.skykalazar.achord.Persistence.Database.SongsDatabase;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -22,14 +21,10 @@ public class SongsRepository {
 
     private SongsRepository(Application app) {
 
+        executorService = Executors.newFixedThreadPool(2);
         SongsDatabase database = SongsDatabase.getInstance(app);
         songsDAO = database.getSongDAO();
         songs = songsDAO.getAllSongs();
-        executorService = Executors.newFixedThreadPool(2);
-
-        insert(new Song("Age of Oppression", "Malukah"));
-        insert(new Song("Crazy", "Gnarls Barkley"));
-        insert(new Song("Девушка из Нагасаки", "Вера Инбер"));
 
     }
 
