@@ -11,9 +11,11 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.skykalazar.achord.Model.Song;
-import com.skykalazar.achord.ViewModel.SongsViewModel;
+import com.skykalazar.achord.R;
+import com.skykalazar.achord.ViewModel.Songs.SongsViewModel;
 import com.skykalazar.achord.databinding.SongDetailsFragmentBinding;
 
 
@@ -49,6 +51,12 @@ public class SongDetailsFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) { super.onViewCreated(view, savedInstanceState);
 
+        binding.ShowLyrics.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(SongDetailsFragment.this).navigate(R.id.action_nav_songDetailsFragment_to_nav_lyricsFragment);
+            }
+        });
     }
 
     @Override

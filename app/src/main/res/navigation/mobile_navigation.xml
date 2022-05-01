@@ -42,5 +42,14 @@
         android:id="@+id/nav_songDetailsFragment"
         android:name="com.skykalazar.achord.View.SongDetails.SongDetailsFragment"
         android:label="Details"
-        tools:layout="@layout/song_details_fragment" />
+        tools:layout="@layout/song_details_fragment" >
+        <action
+            android:id="@+id/action_nav_songDetailsFragment_to_nav_lyricsFragment"
+            app:destination="@id/nav_lyricsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_lyricsFragment"
+        android:name="com.skykalazar.achord.View.Lyrics.LyricsFragment"
+        android:label="Lyrics"
+        tools:layout="@layout/lyrics_fragment" />
 </navigation>
