@@ -12,12 +12,13 @@ import com.skykalazar.achord.Model.Song;
 import com.skykalazar.achord.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SongsAdapter extends RecyclerView.Adapter<SongsAdapter.ViewHolder> {
 
-    ArrayList<Song> songs;
+    List<Song> songs;
 
-    public SongsAdapter(ArrayList<Song> songs) {
+    public SongsAdapter(List<Song> songs) {
         this.songs = songs;
     }
 

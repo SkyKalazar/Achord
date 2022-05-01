@@ -18,7 +18,7 @@ import com.skykalazar.achord.R;
 import com.skykalazar.achord.ViewModel.SongsViewModel;
 import com.skykalazar.achord.databinding.SongsFragmentBinding;
 
-import java.util.ArrayList;
+import java.util.List;
 
 
 public class SongsFragment extends Fragment {
@@ -45,9 +45,9 @@ public class SongsFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) { super.onViewCreated(view, savedInstanceState);
 
-        songsViewModel.getSongs().observe(getViewLifecycleOwner(), new Observer<ArrayList<Song>>() {
+        songsViewModel.getSongs().observe(getViewLifecycleOwner(), new Observer<List<Song>>() {
             @Override
-            public void onChanged(ArrayList<Song> songs) {
+            public void onChanged(List<Song> songs) {
                 recyclerView.setAdapter(new SongsAdapter(songs));
             }
         });

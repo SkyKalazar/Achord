@@ -1,7 +1,6 @@
 package com.skykalazar.achord.Repositories;
 
 import android.app.Application;
-import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
 
@@ -10,6 +9,7 @@ import com.skykalazar.achord.Persistence.DAO.SongsDAO;
 import com.skykalazar.achord.Persistence.Database.SongsDatabase;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -17,7 +17,7 @@ public class SongsRepository {
 
     private static SongsRepository instance;
     private final SongsDAO songsDAO;
-    private final LiveData<ArrayList<Song>> songs;
+    private final LiveData<List<Song>> songs;
     private final ExecutorService executorService;
 
     private SongsRepository(Application app) {
@@ -40,7 +40,7 @@ public class SongsRepository {
         return instance;
     }
 
-    public LiveData<ArrayList<Song>> getAllSongs() {
+    public LiveData<List<Song>> getAllSongs() {
         return songs;
 
     }

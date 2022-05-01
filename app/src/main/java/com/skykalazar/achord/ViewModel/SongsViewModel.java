@@ -4,13 +4,11 @@ import android.app.Application;
 
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
 import com.skykalazar.achord.Model.Song;
 import com.skykalazar.achord.Repositories.SongsRepository;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class SongsViewModel extends AndroidViewModel {
 
@@ -22,7 +20,7 @@ public class SongsViewModel extends AndroidViewModel {
 
     }
 
-    public LiveData<ArrayList<Song>> getSongs() {
+    public LiveData<List<Song>> getSongs() {
         return repository.getAllSongs();
     }
 

@@ -8,6 +8,7 @@ import androidx.room.Query;
 import com.skykalazar.achord.Model.Song;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Dao
 public interface SongsDAO {
@@ -16,5 +17,5 @@ public interface SongsDAO {
     void insert(Song newSong);
 
     @Query("select * from songs_table order by id")
-    LiveData<ArrayList<Song>> getAllSongs();
+    LiveData<List<Song>> getAllSongs();
 }
