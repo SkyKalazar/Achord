@@ -70,6 +70,7 @@ public class SongsFragment extends Fragment implements SongsAdapter.SongOnClickL
 
     @Override
     public void onClick(Song song) {
+        songsViewModel.setCurrentSong(song);
         NavHostFragment.findNavController(SongsFragment.this).navigate(R.id.action_nav_songs_to_nav_songDetailsFragment);
     }
 }
