@@ -33,6 +33,9 @@ public class SongsViewModel extends AndroidViewModel {
     public void updateSong() {
         repository.update(currentSong.getValue());
     }
+    public void deleteSong() {
+        repository.delete(currentSong.getValue());
+    }
 
     public LiveData<Song> getCurrentSong() {
         return currentSong;

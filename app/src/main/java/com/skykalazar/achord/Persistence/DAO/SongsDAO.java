@@ -2,6 +2,7 @@ package com.skykalazar.achord.Persistence.DAO;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
@@ -18,6 +19,9 @@ public interface SongsDAO {
 
     @Update
     void update(Song song);
+
+    @Delete
+    void delete(Song song);
 
     @Query("select * from songs_table order by id")
     LiveData<List<Song>> getAllSongs();
