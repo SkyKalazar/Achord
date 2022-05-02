@@ -1,6 +1,8 @@
 package com.skykalazar.achord.View.SongDetails;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -68,6 +70,27 @@ public class SongDetailsFragment extends Fragment {
                 NavHostFragment.findNavController(SongDetailsFragment.this).navigate(R.id.details_to_home);
             }
         });
+        binding.DeleteSong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                deletionAlert();
+            }
+        });
+    }
+
+    public void deletionAlert() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(binding.getRoot().getContext());
+        builder.setTitle("Delete " + currentTitle.getText());
+        builder.setMessage("Are you sure you want to delete this?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                songsViewModel.deleteSong();
+                NavHostFragment.findNavController(SongDetailsFragment.this).navigate(R.id.details_to_home);
+            }
+        }).setNegativeButton("Cancel", null);
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 
     @Override
