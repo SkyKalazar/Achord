@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".View.SongDetails.SongDetailsFragment">
 
+
     <Button
         android:id="@+id/DeleteSong"
         android:layout_width="wrap_content"
@@ -55,11 +56,22 @@
         android:text="Show lyrics"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.888"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.348" />
+        app:layout_constraintVertical_bias="0.345" />
 
+    <Button
+        android:id="@+id/ShowTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Timer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.158"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.345" />
     <Button
         android:id="@+id/SaveSongDetails"
         android:layout_width="wrap_content"

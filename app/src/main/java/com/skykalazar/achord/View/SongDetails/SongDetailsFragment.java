@@ -76,6 +76,12 @@ public class SongDetailsFragment extends Fragment {
                 deletionAlert();
             }
         });
+        binding.ShowTimer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(SongDetailsFragment.this).navigate(R.id.details_to_timer);
+            }
+        });
     }
 
     public void deletionAlert() {
