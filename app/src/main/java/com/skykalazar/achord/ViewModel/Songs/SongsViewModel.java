@@ -20,7 +20,6 @@ public class SongsViewModel extends AndroidViewModel {
         super(app);
         repository = SongsRepository.getInstance(app);
         currentSong = new MutableLiveData<>();
-
     }
 
     public LiveData<List<Song>> getSongs() {

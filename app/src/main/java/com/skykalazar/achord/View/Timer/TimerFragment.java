@@ -50,6 +50,7 @@ public class TimerFragment extends Fragment {
     public void pauseTimer(View v) {
         if(running) {
             timer.stop();
+            pauseOffset = SystemClock.elapsedRealtime() - timer.getBase();
             running = false;
         }
     }

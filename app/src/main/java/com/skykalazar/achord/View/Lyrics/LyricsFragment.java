@@ -44,6 +44,7 @@ public class LyricsFragment extends Fragment {
         binding.saveNewLyrics.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Law of the meter. Just set lyrics on the current song. Tell, don't ask
                 Objects.requireNonNull(songsViewModel.getCurrentSong().getValue()).setLyrics(lyrics.getText().toString());
                 songsViewModel.updateSong();
                 NavHostFragment.findNavController(LyricsFragment.this).navigate(R.id.action_from_Lyrics_to_Details);

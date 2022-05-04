@@ -51,6 +51,7 @@ public class SongsFragment extends Fragment implements SongsAdapter.SongOnClickL
         songsViewModel.getSongs().observe(getViewLifecycleOwner(), new Observer<List<Song>>() {
             @Override
             public void onChanged(List<Song> songs) {
+                //Set songs through mutator, not constructor. Notify dataset changed
                 recyclerView.setAdapter(new SongsAdapter(songs, callback));
             }
         });
