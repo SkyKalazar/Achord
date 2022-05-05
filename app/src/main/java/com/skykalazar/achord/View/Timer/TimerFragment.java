@@ -19,6 +19,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.skykalazar.achord.ViewModel.Songs.SongsViewModel;
 import com.skykalazar.achord.databinding.TimerFragmentBinding;
 
+import java.util.Objects;
 
 
 public class TimerFragment extends Fragment {
@@ -42,7 +43,7 @@ public class TimerFragment extends Fragment {
     }
     public void startTimer(View v) {
         if(!running) {
-            timer.setBase(SystemClock.elapsedRealtime());
+            timer.setBase(SystemClock.elapsedRealtime() - pauseOffset);
             timer.start();
             running = true;
         }
@@ -55,7 +56,10 @@ public class TimerFragment extends Fragment {
         }
     }
     public void resetTimer(View v) {
-
+        timer.setBase(SystemClock.elapsedRealtime());
+        pauseOffset = 0;
+        timer.stop();
+        running = false;
     }
 
 
@@ -70,6 +74,12 @@ public class TimerFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 pauseTimer(view);
+            }
+        });
+        binding.ResetTimer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                resetTimer(view);
             }
         });
     }
