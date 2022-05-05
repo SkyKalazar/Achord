@@ -11,11 +11,13 @@ public class Song {
     private String title;
     private String artist;
     private String lyrics;
+    private long timeSpent;
 
     public Song(String title, String artist, String lyrics) {
         this.title = title;
         this.artist = artist;
         this.lyrics = lyrics;
+        timeSpent = 0;
     }
 
     public int getId() {
@@ -43,5 +45,12 @@ public class Song {
     }
     public void setLyrics(String lyrics) {
         this.lyrics = lyrics;
+    }
+
+    public long getTimeSpent() {
+        return timeSpent;
+    }
+    public void setTimeSpent(long time) {
+        timeSpent += time;
     }
 }

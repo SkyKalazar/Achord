@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.skykalazar.achord.Model.Song;
 import com.skykalazar.achord.ViewModel.Songs.SongsViewModel;
 import com.skykalazar.achord.databinding.TimerFragmentBinding;
 
@@ -80,6 +81,12 @@ public class TimerFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 resetTimer(view);
+            }
+        });
+        binding.SaveTimer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
             }
         });
     }
