@@ -32,5 +32,12 @@
         android:layout_height="wrap_content"
         android:text="Reset"/>
 
+    <Button
+        android:id="@+id/SaveTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save spent time"
+        android:backgroundTint="@color/teal_700"/>
+
 
 </LinearLayout>
