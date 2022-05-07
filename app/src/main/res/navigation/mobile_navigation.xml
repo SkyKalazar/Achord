@@ -66,6 +66,10 @@
         android:id="@+id/timerFragment"
         android:name="com.skykalazar.achord.View.Timer.TimerFragment"
         android:label="Timer"
-        tools:layout="@layout/timer_fragment" />
+        tools:layout="@layout/timer_fragment">
+        <action
+            android:id="@+id/action_from_timer_to_details"
+            app:destination="@+id/timerFragment"/>
+    </fragment>
 
 </navigation>

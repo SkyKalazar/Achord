@@ -15,8 +15,11 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.skykalazar.achord.Model.Song;
+import com.skykalazar.achord.R;
+import com.skykalazar.achord.View.SongDetails.SongDetailsFragment;
 import com.skykalazar.achord.ViewModel.Songs.SongsViewModel;
 import com.skykalazar.achord.databinding.TimerFragmentBinding;
 
@@ -86,7 +89,13 @@ public class TimerFragment extends Fragment {
         binding.SaveTimer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                songsViewModel.incrementTimer(SystemClock.elapsedRealtime() - timer.getBase());
+                binding.SaveTimer.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        NavHostFragment.findNavController(TimerFragment.this).navigate(R.id.action_from_timer_to_details);
+                    }
+                });
             }
         });
     }

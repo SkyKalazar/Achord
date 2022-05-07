@@ -10,6 +10,7 @@ import com.skykalazar.achord.Model.Song;
 import com.skykalazar.achord.Repositories.SongsRepository;
 
 import java.util.List;
+import java.util.Objects;
 
 public class SongsViewModel extends AndroidViewModel {
 
@@ -42,4 +43,11 @@ public class SongsViewModel extends AndroidViewModel {
     public void setCurrentSong(Song currentSong) {
         this.currentSong.setValue(currentSong);
     }
+
+    public void incrementTimer(long time) {
+        Objects.requireNonNull(currentSong.getValue()).setTimeSpent(time);
+        updateSong();
+    }
+
+
 }
