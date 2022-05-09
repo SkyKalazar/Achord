@@ -48,19 +48,12 @@ public class SongsFragment extends Fragment implements SongsAdapter.SongOnClickL
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) { super.onViewCreated(view, savedInstanceState);
 
-        songsViewModel.getSongs().observe(getViewLifecycleOwner(), new Observer<List<Song>>() {
-            @Override
-            public void onChanged(List<Song> songs) {
-                //Set songs through mutator, not constructor. Notify dataset changed
-                recyclerView.setAdapter(new SongsAdapter(songs, callback));
-            }
+        songsViewModel.getSongs().observe(getViewLifecycleOwner(), songs -> {
+            //Set songs through mutator, not constructor. Notify dataset changed
+            recyclerView.setAdapter(new SongsAdapter(songs, callback));
         });
-        binding.AddSong.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NavHostFragment.findNavController(SongsFragment.this).navigate(R.id.action_nav_songs_to_nav_AddSong);
-            }
-        });
+        binding.AddSong.setOnClickListener(view1 ->
+                NavHostFragment.findNavController(SongsFragment.this).navigate(R.id.action_nav_songs_to_nav_AddSong));
     }
 
     @Override

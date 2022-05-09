@@ -41,12 +41,9 @@ public class AddSongFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) { super.onViewCreated(view, savedInstanceState);
 
 
-        binding.buttonSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                songsViewModel.addSong(new Song(title.getText().toString(), artist.getText().toString(), lyrics.getText().toString()));
-                NavHostFragment.findNavController(AddSongFragment.this).navigate(R.id.action_nav_AddSong_to_nav_songs);
-            }
+        binding.buttonSave.setOnClickListener(view1 -> {
+            songsViewModel.addSong(new Song(title.getText().toString(), artist.getText().toString(), lyrics.getText().toString()));
+            NavHostFragment.findNavController(AddSongFragment.this).navigate(R.id.action_nav_AddSong_to_nav_songs);
         });
     }
 

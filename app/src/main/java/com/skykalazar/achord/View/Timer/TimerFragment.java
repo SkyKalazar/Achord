@@ -2,28 +2,22 @@ package com.skykalazar.achord.View.Timer;
 
 
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Chronometer;
-import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.skykalazar.achord.Model.Song;
 import com.skykalazar.achord.R;
-import com.skykalazar.achord.View.SongDetails.SongDetailsFragment;
 import com.skykalazar.achord.ViewModel.Songs.SongsViewModel;
 import com.skykalazar.achord.databinding.TimerFragmentBinding;
 
-import java.util.Objects;
 
 
 public class TimerFragment extends Fragment {
@@ -68,30 +62,12 @@ public class TimerFragment extends Fragment {
 
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) { super.onViewCreated(view, savedInstanceState);
-        binding.StartTimer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startTimer(view);
-            }
-        });
-        binding.PauseTimer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                pauseTimer(view);
-            }
-        });
-        binding.ResetTimer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                resetTimer(view);
-            }
-        });
-        binding.SaveTimer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                songsViewModel.incrementTimer(SystemClock.elapsedRealtime() - timer.getBase());
-                NavHostFragment.findNavController(TimerFragment.this).navigate(R.id.action_from_timer_to_details);
-            }
+        binding.StartTimer.setOnClickListener(this::startTimer);
+        binding.PauseTimer.setOnClickListener(this::pauseTimer);
+        binding.ResetTimer.setOnClickListener(this::resetTimer);
+        binding.SaveTimer.setOnClickListener(view1 -> {
+            songsViewModel.incrementTimer(SystemClock.elapsedRealtime() - timer.getBase());
+            NavHostFragment.findNavController(TimerFragment.this).navigate(R.id.action_from_timer_to_details);
         });
     }
 

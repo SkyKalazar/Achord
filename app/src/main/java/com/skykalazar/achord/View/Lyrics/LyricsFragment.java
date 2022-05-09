@@ -13,11 +13,9 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import com.skykalazar.achord.R;
-import com.skykalazar.achord.View.Songs.SongsFragment;
 import com.skykalazar.achord.ViewModel.Songs.SongsViewModel;
 import com.skykalazar.achord.databinding.LyricsFragmentBinding;
 
-import java.util.Objects;
 
 
 public class LyricsFragment extends Fragment {
@@ -41,13 +39,9 @@ public class LyricsFragment extends Fragment {
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) { super.onViewCreated(view, savedInstanceState);
-        binding.saveNewLyrics.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Law of the meter. Just set lyrics on the current song. Tell, don't ask
-                songsViewModel.setLyrics(lyrics.getText().toString());
-                NavHostFragment.findNavController(LyricsFragment.this).navigate(R.id.action_from_Lyrics_to_Details);
-            }
+        binding.saveNewLyrics.setOnClickListener(view1 -> {
+            songsViewModel.setLyrics(lyrics.getText().toString());
+            NavHostFragment.findNavController(LyricsFragment.this).navigate(R.id.action_from_Lyrics_to_Details);
         });
     }
 
