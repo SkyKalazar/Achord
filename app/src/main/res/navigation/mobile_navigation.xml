@@ -69,7 +69,7 @@
         tools:layout="@layout/timer_fragment">
         <action
             android:id="@+id/action_from_timer_to_details"
-            app:destination="@+id/timerFragment"/>
+            app:destination="@+id/nav_songDetailsFragment"/>
     </fragment>
 
 </navigation>

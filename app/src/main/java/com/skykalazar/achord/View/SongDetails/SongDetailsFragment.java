@@ -4,9 +4,11 @@ package com.skykalazar.achord.View.SongDetails;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Chronometer;
 import android.widget.EditText;
 
 
@@ -23,12 +25,14 @@ import com.skykalazar.achord.databinding.SongDetailsFragmentBinding;
 import java.util.Objects;
 
 
+
 public class SongDetailsFragment extends Fragment {
 
     private SongDetailsFragmentBinding binding;
     private SongsViewModel songsViewModel;
     private EditText currentTitle;
     private EditText currentArtist;
+    private Chronometer timeSpent;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -38,6 +42,7 @@ public class SongDetailsFragment extends Fragment {
 
         currentTitle = binding.CurrentTitle;
         currentArtist = binding.CurrentArtist;
+        timeSpent = binding.DetailsTimeSpent;
 
         populateCurrentSongDetails();
 
@@ -50,6 +55,7 @@ public class SongDetailsFragment extends Fragment {
         if(currentSong != null) {
         currentTitle.setText(currentSong.getTitle());
         currentArtist.setText(currentSong.getArtist());
+        timeSpent.setBase(SystemClock.elapsedRealtime() - currentSong.getTimeSpent());
         }
     }
 

@@ -48,6 +48,9 @@ public class SongsViewModel extends AndroidViewModel {
         Objects.requireNonNull(currentSong.getValue()).setTimeSpent(time);
         updateSong();
     }
+    public long getTimeSpent() {
+        return Objects.requireNonNull(currentSong.getValue()).getTimeSpent();
+    }
 
 
 }

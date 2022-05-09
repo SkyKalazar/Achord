@@ -90,12 +90,7 @@ public class TimerFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 songsViewModel.incrementTimer(SystemClock.elapsedRealtime() - timer.getBase());
-                binding.SaveTimer.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        NavHostFragment.findNavController(TimerFragment.this).navigate(R.id.action_from_timer_to_details);
-                    }
-                });
+                NavHostFragment.findNavController(TimerFragment.this).navigate(R.id.action_from_timer_to_details);
             }
         });
     }
