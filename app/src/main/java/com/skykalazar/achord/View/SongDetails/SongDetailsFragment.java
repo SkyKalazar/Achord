@@ -51,12 +51,9 @@ public class SongDetailsFragment extends Fragment {
     }
 
     private void populateCurrentSongDetails() {
-        Song currentSong = songsViewModel.getCurrentSong().getValue();
-        if(currentSong != null) {
-        currentTitle.setText(currentSong.getTitle());
-        currentArtist.setText(currentSong.getArtist());
-        timeSpent.setBase(SystemClock.elapsedRealtime() - currentSong.getTimeSpent());
-        }
+        currentTitle.setText(songsViewModel.getTitle());
+        currentArtist.setText(songsViewModel.getArtist());
+        timeSpent.setBase(SystemClock.elapsedRealtime() - songsViewModel.getTimeSpent());
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) { super.onViewCreated(view, savedInstanceState);
@@ -70,9 +67,8 @@ public class SongDetailsFragment extends Fragment {
         binding.SaveSongDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Objects.requireNonNull(songsViewModel.getCurrentSong().getValue()).setTitle(currentTitle.getText().toString());
-                Objects.requireNonNull(songsViewModel.getCurrentSong().getValue()).setArtist(currentArtist.getText().toString());
-                songsViewModel.updateSong();
+                songsViewModel.setTitle(currentTitle.getText().toString());
+                songsViewModel.setArtist(currentArtist.getText().toString());
                 NavHostFragment.findNavController(SongDetailsFragment.this).navigate(R.id.details_to_home);
             }
         });

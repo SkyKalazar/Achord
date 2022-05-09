@@ -37,19 +37,40 @@ public class SongsViewModel extends AndroidViewModel {
         repository.delete(currentSong.getValue());
     }
 
-    public LiveData<Song> getCurrentSong() {
-        return currentSong;
-    }
     public void setCurrentSong(Song currentSong) {
         this.currentSong.setValue(currentSong);
     }
 
+    public String getTitle() {
+        return Objects.requireNonNull(currentSong.getValue()).getTitle();
+    }
+    public void setTitle(String newTitle) {
+        Objects.requireNonNull(currentSong.getValue()).setTitle(newTitle);
+        updateSong();
+    }
+
+    public String getArtist() {
+        return Objects.requireNonNull(currentSong.getValue()).getArtist();
+    }
+    public void setArtist(String newArtist) {
+        Objects.requireNonNull(currentSong.getValue()).setArtist(newArtist);
+        updateSong();
+    }
+
+    public String getLyrics() {
+        return Objects.requireNonNull(currentSong.getValue()).getLyrics();
+    }
+    public void setLyrics(String newLyrics) {
+        Objects.requireNonNull(currentSong.getValue()).setLyrics(newLyrics);
+        updateSong();
+    }
+
+    public long getTimeSpent() {
+        return Objects.requireNonNull(currentSong.getValue()).getTimeSpent();
+    }
     public void incrementTimer(long time) {
         Objects.requireNonNull(currentSong.getValue()).setTimeSpent(time);
         updateSong();
-    }
-    public long getTimeSpent() {
-        return Objects.requireNonNull(currentSong.getValue()).getTimeSpent();
     }
 
 

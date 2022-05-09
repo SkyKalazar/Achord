@@ -35,7 +35,7 @@ public class LyricsFragment extends Fragment {
 
         lyrics = binding.currentLyrics;
 
-        lyrics.setText(Objects.requireNonNull(songsViewModel.getCurrentSong().getValue()).getLyrics());
+        lyrics.setText(songsViewModel.getLyrics());
         return binding.getRoot();
 
     }
@@ -45,8 +45,7 @@ public class LyricsFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 //Law of the meter. Just set lyrics on the current song. Tell, don't ask
-                Objects.requireNonNull(songsViewModel.getCurrentSong().getValue()).setLyrics(lyrics.getText().toString());
-                songsViewModel.updateSong();
+                songsViewModel.setLyrics(lyrics.getText().toString());
                 NavHostFragment.findNavController(LyricsFragment.this).navigate(R.id.action_from_Lyrics_to_Details);
             }
         });
