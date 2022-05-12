@@ -50,7 +50,7 @@ public class SongsFragment extends Fragment implements SongsAdapter.SongOnClickL
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        
+
         adapter = new SongsAdapter(callback);
         recyclerView.setAdapter(adapter);
 
@@ -77,6 +77,11 @@ public class SongsFragment extends Fragment implements SongsAdapter.SongOnClickL
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        binding.SearchField.getText().clear();
     }
 
     @Override
