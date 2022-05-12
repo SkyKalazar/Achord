@@ -1,6 +1,8 @@
 package com.skykalazar.achord.View.Songs;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,17 +50,24 @@ public class SongsFragment extends Fragment implements SongsAdapter.SongOnClickL
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
+        
         adapter = new SongsAdapter(callback);
         recyclerView.setAdapter(adapter);
 
         songsViewModel.getSongs().observe(getViewLifecycleOwner(), songs -> {
             adapter.setSongs(songs);
         });
-        binding.SearchTrigger.setOnClickListener(view12 -> {
-            List<Song> songs = songsViewModel.filterByTitle(binding.SearchField.getText().toString());
-            adapter.setSongs(songs);
+        binding.SearchField.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+            @Override
+            public void afterTextChanged(Editable editable) {
+                adapter.setSongs(songsViewModel.filterByTitle(editable.toString()));
+            }
         });
         binding.AddSong.setOnClickListener(view1 ->
                 NavHostFragment.findNavController(SongsFragment.this).navigate(R.id.action_nav_songs_to_nav_AddSong));

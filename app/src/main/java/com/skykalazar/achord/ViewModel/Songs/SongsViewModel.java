@@ -40,7 +40,7 @@ public class SongsViewModel extends AndroidViewModel {
     public List<Song> filterByTitle(String title) {
         List<Song> filteredSongs = new ArrayList<>();
         for(int i = 0; i < getSongs().getValue().size(); i++) {
-            if(getSongs().getValue().get(i).getTitle().contains(title)) {
+            if(getSongs().getValue().get(i).getTitle().toLowerCase().contains(title.toLowerCase())) {
                 filteredSongs.add(getSongs().getValue().get(i));
             }
         }
