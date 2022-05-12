@@ -54,9 +54,11 @@ public class SongsFragment extends Fragment implements SongsAdapter.SongOnClickL
         recyclerView.setAdapter(adapter);
 
         songsViewModel.getSongs().observe(getViewLifecycleOwner(), songs -> {
-            //Set songs through mutator, not constructor. Notify dataset changed
             adapter.setSongs(songs);
-
+        });
+        binding.SearchTrigger.setOnClickListener(view12 -> {
+            List<Song> songs = songsViewModel.filterByTitle(binding.SearchField.getText().toString());
+            adapter.setSongs(songs);
         });
         binding.AddSong.setOnClickListener(view1 ->
                 NavHostFragment.findNavController(SongsFragment.this).navigate(R.id.action_nav_songs_to_nav_AddSong));

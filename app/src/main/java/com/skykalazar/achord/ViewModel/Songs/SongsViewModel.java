@@ -9,6 +9,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.skykalazar.achord.Model.Song;
 import com.skykalazar.achord.Repositories.SongsRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -35,6 +36,15 @@ public class SongsViewModel extends AndroidViewModel {
     }
     public void deleteSong() {
         repository.delete(currentSong.getValue());
+    }
+    public List<Song> filterByTitle(String title) {
+        List<Song> filteredSongs = new ArrayList<>();
+        for(int i = 0; i < getSongs().getValue().size(); i++) {
+            if(getSongs().getValue().get(i).getTitle().contains(title)) {
+                filteredSongs.add(getSongs().getValue().get(i));
+            }
+        }
+        return filteredSongs;
     }
 
     public void setCurrentSong(Song currentSong) {
