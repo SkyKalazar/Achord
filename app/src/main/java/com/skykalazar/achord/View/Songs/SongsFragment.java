@@ -27,6 +27,7 @@ public class SongsFragment extends Fragment implements SongsAdapter.SongOnClickL
     private RecyclerView recyclerView;
     private SongsViewModel songsViewModel;
     private SongsAdapter.SongOnClickListener callback;
+    private SongsAdapter adapter;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -42,15 +43,20 @@ public class SongsFragment extends Fragment implements SongsAdapter.SongOnClickL
 
         callback = this;
 
-
         return root;
     }
 
-    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) { super.onViewCreated(view, savedInstanceState);
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+
+        adapter = new SongsAdapter(callback);
+        recyclerView.setAdapter(adapter);
 
         songsViewModel.getSongs().observe(getViewLifecycleOwner(), songs -> {
             //Set songs through mutator, not constructor. Notify dataset changed
-            recyclerView.setAdapter(new SongsAdapter(songs, callback));
+            adapter.setSongs(songs);
+
         });
         binding.AddSong.setOnClickListener(view1 ->
                 NavHostFragment.findNavController(SongsFragment.this).navigate(R.id.action_nav_songs_to_nav_AddSong));
