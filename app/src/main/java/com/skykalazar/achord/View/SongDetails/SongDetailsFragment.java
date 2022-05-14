@@ -64,6 +64,7 @@ public class SongDetailsFragment extends Fragment {
         binding.SaveSongDetails.setOnClickListener(view12 -> {
             songsViewModel.setTitle(currentTitle.getText().toString());
             songsViewModel.setArtist(currentArtist.getText().toString());
+            songsViewModel.setFavourite(isFavourite.isChecked());
             NavHostFragment.findNavController(SongDetailsFragment.this).navigate(R.id.details_to_home);
         });
         binding.DeleteSong.setOnClickListener(view13 ->

@@ -88,6 +88,7 @@ public class SongsViewModel extends AndroidViewModel {
     }
     public void setFavourite(boolean current) {
         Objects.requireNonNull(currentSong.getValue()).setFavourite(current);
+        updateSong();
     }
 
 
