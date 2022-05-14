@@ -9,7 +9,7 @@ import androidx.room.RoomDatabase;
 import com.skykalazar.achord.Model.Song;
 import com.skykalazar.achord.Persistence.DAO.SongsDAO;
 
-@Database(entities = {Song.class}, version = 4)
+@Database(entities = {Song.class}, version = 5)
 public abstract class SongsDatabase extends RoomDatabase {
 
     private static SongsDatabase instance;

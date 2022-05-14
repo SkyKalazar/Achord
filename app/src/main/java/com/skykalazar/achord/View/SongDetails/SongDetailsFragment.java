@@ -32,6 +32,7 @@ public class SongDetailsFragment extends Fragment {
     private EditText currentArtist;
     private Chronometer timeSpent;
     private SwitchCompat isFavourite;
+    private EditText remark;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -43,6 +44,7 @@ public class SongDetailsFragment extends Fragment {
         currentArtist = binding.CurrentArtist;
         timeSpent = binding.DetailsTimeSpent;
         isFavourite = binding.isFavourite;
+        remark = binding.SongRemark;
 
         populateCurrentSongDetails();
 
@@ -55,6 +57,7 @@ public class SongDetailsFragment extends Fragment {
         currentArtist.setText(songsViewModel.getArtist());
         timeSpent.setBase(SystemClock.elapsedRealtime() - songsViewModel.getTimeSpent());
         isFavourite.setChecked(songsViewModel.isFavourite());
+        remark.setText(songsViewModel.getRemark());
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) { super.onViewCreated(view, savedInstanceState);
@@ -65,6 +68,7 @@ public class SongDetailsFragment extends Fragment {
             songsViewModel.setTitle(currentTitle.getText().toString());
             songsViewModel.setArtist(currentArtist.getText().toString());
             songsViewModel.setFavourite(isFavourite.isChecked());
+            songsViewModel.setRemark(remark.getText().toString());
             NavHostFragment.findNavController(SongDetailsFragment.this).navigate(R.id.details_to_home);
         });
         binding.DeleteSong.setOnClickListener(view13 ->

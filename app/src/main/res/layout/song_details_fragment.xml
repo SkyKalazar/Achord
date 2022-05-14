@@ -13,14 +13,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
-        android:text="Delete"
         android:backgroundTint="@color/red"
+        android:text="Delete"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.136"
+        app:layout_constraintHorizontal_bias="0.152"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ShowLyrics"
-        app:layout_constraintVertical_bias="0.961" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/CurrentTitle"
@@ -84,7 +84,7 @@
         app:layout_constraintHorizontal_bias="0.94"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ShowLyrics"
-        app:layout_constraintVertical_bias="0.961" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <Chronometer
         android:id="@+id/DetailsTimeSpent"
@@ -100,12 +100,36 @@
         android:id="@+id/isFavourite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Favourite"
+        app:layout_constraintBottom_toTopOf="@+id/ShowLyrics"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="Favourite"
-        app:layout_constraintTop_toBottomOf="@+id/DetailsTimeSpent" />
+        app:layout_constraintTop_toBottomOf="@+id/CurrentArtist" />
 
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="337dp"
+        android:layout_height="144dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/DetailsTimeSpent"
+        tools:ignore="SpeakableTextPresentCheck">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/SongRemark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+        </LinearLayout>
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
