@@ -14,6 +14,7 @@ public class Song {
     private long timeSpent;
     private boolean favourite;
     private String remark;
+    private Difficulty difficulty;
 
     public Song(String title, String artist, String lyrics) {
         this.title = title;
@@ -22,6 +23,7 @@ public class Song {
         timeSpent = 0;
         favourite = false;
         remark = "";
+        difficulty = Difficulty.Undefined;
     }
 
     public int getId() {
@@ -70,5 +72,12 @@ public class Song {
     }
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    public Difficulty getDifficulty() {
+        return difficulty;
+    }
+    public void setDifficulty(Difficulty difficulty) {
+        this.difficulty = difficulty;
     }
 }
