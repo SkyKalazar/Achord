@@ -14,7 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SearchField">
+        app:layout_constraintTop_toBottomOf="@+id/FilterFavourites">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv1"
@@ -45,5 +45,13 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/FilterFavourites"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SearchField"
+        android:text="Toggle to see only favourites"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
