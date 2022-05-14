@@ -37,14 +37,27 @@ public class SongsViewModel extends AndroidViewModel {
     public void deleteSong() {
         repository.delete(currentSong.getValue());
     }
-    public List<Song> filterByTitle(String title) {
-        List<Song> filteredSongs = new ArrayList<>();
-        for(int i = 0; i < getSongs().getValue().size(); i++) {
-            if(getSongs().getValue().get(i).getTitle().toLowerCase().contains(title.toLowerCase())) {
-                filteredSongs.add(getSongs().getValue().get(i));
+
+    public List<Song> masterFilter(String title, boolean favourite) {
+        List<Song> allSongs = new ArrayList<>(Objects.requireNonNull(getSongs().getValue()));
+        List<Song> filtered = new ArrayList<>(Objects.requireNonNull(allSongs));
+
+
+        if(!title.isEmpty()) {
+            for (int i = 0; i < Objects.requireNonNull(allSongs).size(); i++) {
+                if (!allSongs.get(i).getTitle().toLowerCase().contains(title.toLowerCase()))
+                    filtered.remove(allSongs.get(i));
             }
         }
-        return filteredSongs;
+        if(favourite) {
+            for(int i = 0; i < Objects.requireNonNull(allSongs).size(); i++) {
+                if(!allSongs.get(i).isFavourite()) {
+                    filtered.remove(allSongs.get(i));
+                }
+            }
+        }
+
+        return filtered;
     }
 
     public void setCurrentSong(Song currentSong) {

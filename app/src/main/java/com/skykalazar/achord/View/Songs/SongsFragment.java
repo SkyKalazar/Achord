@@ -66,9 +66,13 @@ public class SongsFragment extends Fragment implements SongsAdapter.SongOnClickL
             }
             @Override
             public void afterTextChanged(Editable editable) {
-                adapter.setSongs(songsViewModel.filterByTitle(editable.toString()));
+                adapter.setSongs(songsViewModel.masterFilter(editable.toString(), binding.FilterFavourites.isChecked()));
             }
         });
+        binding.FilterFavourites.setOnClickListener(view12 -> {
+                adapter.setSongs(songsViewModel.masterFilter(binding.SearchField.getText().toString(), binding.FilterFavourites.isChecked()));
+        });
+
         binding.AddSong.setOnClickListener(view1 ->
                 NavHostFragment.findNavController(SongsFragment.this).navigate(R.id.action_nav_songs_to_nav_AddSong));
     }
@@ -82,6 +86,7 @@ public class SongsFragment extends Fragment implements SongsAdapter.SongOnClickL
     public void onResume() {
         super.onResume();
         binding.SearchField.getText().clear();
+        binding.FilterFavourites.setChecked(false);
     }
 
     @Override
