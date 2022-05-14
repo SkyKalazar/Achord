@@ -104,5 +104,12 @@ public class SongsViewModel extends AndroidViewModel {
         updateSong();
     }
 
+    public String getRemark() {
+        return Objects.requireNonNull(currentSong.getValue()).getRemark();
+    }
+    public void setRemark(String newRemark) {
+        Objects.requireNonNull(currentSong.getValue()).setRemark(newRemark);
+        updateSong();
+    }
 
 }

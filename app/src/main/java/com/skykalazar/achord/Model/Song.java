@@ -13,6 +13,7 @@ public class Song {
     private String lyrics;
     private long timeSpent;
     private boolean favourite;
+    private String remark;
 
     public Song(String title, String artist, String lyrics) {
         this.title = title;
@@ -20,6 +21,7 @@ public class Song {
         this.lyrics = lyrics;
         timeSpent = 0;
         favourite = false;
+        remark = "";
     }
 
     public int getId() {
@@ -61,5 +63,12 @@ public class Song {
     }
     public void setFavourite(boolean current) {
         favourite = current;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 }
