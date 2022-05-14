@@ -112,4 +112,12 @@ public class SongsViewModel extends AndroidViewModel {
         updateSong();
     }
 
+    public String getDifficulty() {
+        return Objects.requireNonNull(currentSong.getValue()).getDifficulty();
+    }
+    public void setDifficulty(String difficulty) {
+        Objects.requireNonNull(currentSong.getValue()).setDifficulty(difficulty);
+        updateSong();
+    }
+
 }

@@ -7,8 +7,10 @@ import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Chronometer;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 
 import androidx.annotation.NonNull;
@@ -33,6 +35,7 @@ public class SongDetailsFragment extends Fragment {
     private Chronometer timeSpent;
     private SwitchCompat isFavourite;
     private EditText remark;
+    private Spinner difficulty;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -45,6 +48,7 @@ public class SongDetailsFragment extends Fragment {
         timeSpent = binding.DetailsTimeSpent;
         isFavourite = binding.isFavourite;
         remark = binding.SongRemark;
+        difficulty = binding.DifficultySelection;
 
         populateCurrentSongDetails();
 
@@ -58,6 +62,11 @@ public class SongDetailsFragment extends Fragment {
         timeSpent.setBase(SystemClock.elapsedRealtime() - songsViewModel.getTimeSpent());
         isFavourite.setChecked(songsViewModel.isFavourite());
         remark.setText(songsViewModel.getRemark());
+
+        ArrayAdapter<CharSequence> difficultiesAdapter = ArrayAdapter.createFromResource(binding.getRoot().getContext(), R.array.difficulty, android.R.layout.simple_spinner_item);
+        difficultiesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        difficulty.setAdapter(difficultiesAdapter);
+
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) { super.onViewCreated(view, savedInstanceState);

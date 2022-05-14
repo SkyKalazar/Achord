@@ -12,4 +12,12 @@
     <string name="menu_slideshow">Slideshow</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    
+    <string-array name="difficulty">
+        <item>Undefined</item>
+        <item>Simple</item>
+        <item>Moderate</item>
+        <item>Challenging</item>
+        <item>Project</item>
+    </string-array>
 </resources>
