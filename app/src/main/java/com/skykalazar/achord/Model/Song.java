@@ -12,12 +12,14 @@ public class Song {
     private String artist;
     private String lyrics;
     private long timeSpent;
+    private boolean favourite;
 
     public Song(String title, String artist, String lyrics) {
         this.title = title;
         this.artist = artist;
         this.lyrics = lyrics;
         timeSpent = 0;
+        favourite = false;
     }
 
     public int getId() {
@@ -52,5 +54,12 @@ public class Song {
     }
     public void setTimeSpent(long time) {
         timeSpent += time;
+    }
+
+    public boolean isFavourite() {
+        return favourite;
+    }
+    public void setFavourite(boolean current) {
+        favourite = current;
     }
 }
