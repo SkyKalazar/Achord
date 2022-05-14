@@ -2,7 +2,6 @@ package com.skykalazar.achord.View.SongDetails;
 
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.LayoutInflater;
@@ -13,6 +12,7 @@ import android.widget.EditText;
 
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
@@ -31,6 +31,7 @@ public class SongDetailsFragment extends Fragment {
     private EditText currentTitle;
     private EditText currentArtist;
     private Chronometer timeSpent;
+    private SwitchCompat isFavourite;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -41,6 +42,7 @@ public class SongDetailsFragment extends Fragment {
         currentTitle = binding.CurrentTitle;
         currentArtist = binding.CurrentArtist;
         timeSpent = binding.DetailsTimeSpent;
+        isFavourite = binding.isFavourite;
 
         populateCurrentSongDetails();
 
@@ -52,6 +54,7 @@ public class SongDetailsFragment extends Fragment {
         currentTitle.setText(songsViewModel.getTitle());
         currentArtist.setText(songsViewModel.getArtist());
         timeSpent.setBase(SystemClock.elapsedRealtime() - songsViewModel.getTimeSpent());
+        isFavourite.setChecked(songsViewModel.isFavourite());
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) { super.onViewCreated(view, savedInstanceState);
