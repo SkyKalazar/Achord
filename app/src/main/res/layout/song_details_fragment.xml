@@ -125,6 +125,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:hint="Place for additional insights"
                 android:gravity="start|top"
                 android:inputType="textMultiLine"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
