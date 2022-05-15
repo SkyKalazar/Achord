@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".View.SongDetails.SongDetailsFragment">
 
 
@@ -51,7 +55,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="28dp"
         android:text="Show lyrics"
         app:layout_constraintBottom_toTopOf="@+id/TimerLayout"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,11 +62,11 @@
 
     <Button
         android:id="@+id/ShowTimer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="35dp"
-        android:layout_marginBottom="28dp"
+        android:layout_width="140dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="28dp"
         android:text="Start timer"
+        app:layout_constraintBaseline_toBaselineOf="@id/ShowLyrics"
         app:layout_constraintBottom_toTopOf="@+id/TimerLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/RemarkScrollView" />
@@ -92,10 +95,10 @@
     <ScrollView
         android:id="@+id/RemarkScrollView"
         android:layout_width="wrap_content"
-        android:layout_height="180dp"
-        android:isScrollContainer="false"
+        android:layout_height="wrap_content"
 
-        app:layout_constraintBottom_toTopOf="@+id/TimerLayout"
+        android:isScrollContainer="false"
+        app:layout_constraintBottom_toTopOf="@+id/ShowLyrics"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -106,6 +109,7 @@
             android:id="@+id/RemarkLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="10dp"
             android:orientation="vertical">
 
             <EditText
@@ -152,7 +156,7 @@
         android:id="@+id/TimerLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="14dp"
+        android:layout_marginBottom="20dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/DeleteSong"
         app:layout_constraintEnd_toEndOf="parent"
@@ -178,3 +182,4 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
