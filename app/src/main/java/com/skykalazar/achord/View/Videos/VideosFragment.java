@@ -1,4 +1,4 @@
-package com.skykalazar.achord.View.slideshow;
+package com.skykalazar.achord.View.Videos;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,23 +10,23 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.skykalazar.achord.ViewModel.SlideshowViewModel;
-import com.skykalazar.achord.databinding.SlideshowFragmentBinding;
+import com.skykalazar.achord.ViewModel.VideosViewModel;
+import com.skykalazar.achord.databinding.VideosFragmentBinding;
 
-public class SlideshowFragment extends Fragment {
+public class VideosFragment extends Fragment {
 
-    private SlideshowFragmentBinding binding;
+    private VideosFragmentBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        SlideshowViewModel slideshowViewModel =
-                new ViewModelProvider(this).get(SlideshowViewModel.class);
+        VideosViewModel videosViewModel =
+                new ViewModelProvider(this).get(VideosViewModel.class);
 
-        binding = SlideshowFragmentBinding.inflate(inflater, container, false);
+        binding = VideosFragmentBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textSlideshow;
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        videosViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
