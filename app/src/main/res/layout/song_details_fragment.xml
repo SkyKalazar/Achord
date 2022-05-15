@@ -10,28 +10,26 @@
 
     <Button
         android:id="@+id/DeleteSong"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_width="128dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
         android:backgroundTint="@color/red"
         android:text="Delete"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.152"
+        app:layout_constraintBottom_toBottomOf="@+id/SaveSongDetails"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ShowLyrics"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="@+id/SaveSongDetails" />
 
     <EditText
         android:id="@+id/CurrentTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Title"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/CurrentArtist"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,84 +37,74 @@
         android:id="@+id/CurrentArtist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
         android:ems="10"
         android:hint="Artist"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/ShowLyrics"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/CurrentTitle" />
 
     <Button
         android:id="@+id/ShowLyrics"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="28dp"
         android:text="Show lyrics"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.888"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.345" />
+        app:layout_constraintBottom_toTopOf="@+id/TimerLayout"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/ShowTimer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Timer"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.158"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.345" />
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="28dp"
+        android:text="Start timer"
+        app:layout_constraintBottom_toTopOf="@+id/TimerLayout"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/SaveSongDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="28dp"
         android:layout_marginBottom="32dp"
         android:text="Save details"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.94"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ShowLyrics"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Chronometer
-        android:id="@+id/DetailsTimeSpent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.433" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/isFavourite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Favourite"
-        app:layout_constraintBottom_toTopOf="@+id/ShowLyrics"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/RemarkScrollView"
+        app:layout_constraintRight_toLeftOf="@+id/DifficultyLayout"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CurrentArtist" />
+        app:layout_constraintTop_toBottomOf="@+id/CurrentArtist"
+        app:layout_constraintBaseline_toBaselineOf="@id/DifficultySelection"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <ScrollView
-        android:id="@+id/scrollView3"
-        android:layout_width="337dp"
-        android:layout_height="144dp"
+        android:id="@+id/RemarkScrollView"
+        android:layout_width="0dp"
+        android:layout_height="92dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="35dp"
+        android:isScrollContainer="false"
+        app:layout_constraintBottom_toTopOf="@+id/ShowTimer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/DetailsTimeSpent"
+        app:layout_constraintTop_toBottomOf="@+id/DifficultyLayout"
         tools:ignore="SpeakableTextPresentCheck">
 
         <LinearLayout
+            android:id="@+id/RemarkLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -125,44 +113,69 @@
                 android:id="@+id/SongRemark"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
                 android:gravity="start|top"
-                android:hint="Place for additional insights"
+                android:hint="Place for additional insights and remarks"
                 android:inputType="textMultiLine"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
         </LinearLayout>
     </ScrollView>
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
+        android:id="@+id/DifficultyLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="89dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView3"
-        app:layout_constraintVertical_bias="0.051">
+        app:layout_constraintTop_toBottomOf="@+id/CurrentArtist">
 
 
         <EditText
             android:id="@+id/DifficultyDescription"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:inputType="none"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:background="@color/white"
+            android:focusable="false"
+            android:inputType="none"
             android:text="Difficulty: "
+            android:textSize="18dp"
             tools:ignore="TouchTargetSizeCheck" />
 
         <Spinner
             android:id="@+id/DifficultySelection"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:minHeight="24dp"
             android:spinnerMode="dropdown"
             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/TimerLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/DeleteSong"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <EditText
+            android:id="@+id/TimerLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:focusable="false"
+            android:inputType="textPersonName"
+            android:text="Total time spent:"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <Chronometer
+            android:id="@+id/DetailsTimeSpent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp" />
     </LinearLayout>
 
 

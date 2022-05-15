@@ -36,7 +36,6 @@ public class SongDetailsFragment extends Fragment {
     private SwitchCompat isFavourite;
     private EditText remark;
     private Spinner difficulty;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
