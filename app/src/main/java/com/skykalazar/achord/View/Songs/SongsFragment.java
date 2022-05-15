@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,10 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.skykalazar.achord.Model.Song;
 import com.skykalazar.achord.R;
-import com.skykalazar.achord.ViewModel.Songs.SongsViewModel;
+import com.skykalazar.achord.ViewModel.SongsViewModel;
 import com.skykalazar.achord.databinding.SongsFragmentBinding;
-
-import java.util.List;
 
 
 public class SongsFragment extends Fragment implements SongsAdapter.SongOnClickListener {

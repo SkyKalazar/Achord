@@ -20,7 +20,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.skykalazar.achord.R;
-import com.skykalazar.achord.ViewModel.Songs.SongsViewModel;
+import com.skykalazar.achord.ViewModel.SongsViewModel;
 import com.skykalazar.achord.databinding.SongDetailsFragmentBinding;
 
 

@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import com.skykalazar.achord.R;
-import com.skykalazar.achord.ViewModel.Songs.SongsViewModel;
+import com.skykalazar.achord.ViewModel.SongsViewModel;
 import com.skykalazar.achord.databinding.LyricsFragmentBinding;
 
 

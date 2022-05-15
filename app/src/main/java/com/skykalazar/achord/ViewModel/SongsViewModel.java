@@ -1,4 +1,4 @@
-package com.skykalazar.achord.ViewModel.Songs;
+package com.skykalazar.achord.ViewModel;
 
 import android.app.Application;
 
