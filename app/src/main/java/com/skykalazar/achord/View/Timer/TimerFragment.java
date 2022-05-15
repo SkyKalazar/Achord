@@ -26,7 +26,7 @@ public class TimerFragment extends Fragment {
     private SongsViewModel songsViewModel;
     private Chronometer timer;
     private boolean running;
-    private long timePassed;
+    private long elapsedTime;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -41,7 +41,7 @@ public class TimerFragment extends Fragment {
     }
     public void startTimer(View v) {
         if(!running) {
-            timer.setBase(SystemClock.elapsedRealtime() - timePassed);
+            timer.setBase(SystemClock.elapsedRealtime() - elapsedTime);
             timer.start();
             running = true;
         }
@@ -49,13 +49,13 @@ public class TimerFragment extends Fragment {
     public void pauseTimer(View v) {
         if(running) {
             timer.stop();
-            timePassed = SystemClock.elapsedRealtime() - timer.getBase();
+            elapsedTime = SystemClock.elapsedRealtime() - timer.getBase();
             running = false;
         }
     }
     public void resetTimer(View v) {
         timer.setBase(SystemClock.elapsedRealtime());
-        timePassed = 0;
+        elapsedTime = 0;
         timer.stop();
         running = false;
     }
@@ -66,7 +66,7 @@ public class TimerFragment extends Fragment {
         binding.PauseTimer.setOnClickListener(this::pauseTimer);
         binding.ResetTimer.setOnClickListener(this::resetTimer);
         binding.SaveTimer.setOnClickListener(view1 -> {
-            songsViewModel.incrementTimer(SystemClock.elapsedRealtime() - timer.getBase());
+            songsViewModel.incrementTimer(elapsedTime);
             NavHostFragment.findNavController(TimerFragment.this).navigate(R.id.action_from_timer_to_details);
         });
     }
