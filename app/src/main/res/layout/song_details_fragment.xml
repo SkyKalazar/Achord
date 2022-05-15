@@ -16,8 +16,7 @@
         android:backgroundTint="@color/red"
         android:text="Delete"
         app:layout_constraintBottom_toBottomOf="@+id/SaveSongDetails"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/SaveSongDetails" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/CurrentTitle"
@@ -55,7 +54,8 @@
         android:layout_marginBottom="28dp"
         android:text="Show lyrics"
         app:layout_constraintBottom_toTopOf="@+id/TimerLayout"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/RemarkScrollView" />
 
     <Button
         android:id="@+id/ShowTimer"
@@ -65,7 +65,8 @@
         android:layout_marginBottom="28dp"
         android:text="Start timer"
         app:layout_constraintBottom_toTopOf="@+id/TimerLayout"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/RemarkScrollView" />
 
     <Button
         android:id="@+id/SaveSongDetails"
@@ -84,23 +85,21 @@
         android:text="Favourite"
         android:textSize="18dp"
         app:layout_constraintBottom_toTopOf="@+id/RemarkScrollView"
-        app:layout_constraintRight_toLeftOf="@+id/DifficultyLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CurrentArtist"
-        app:layout_constraintBaseline_toBaselineOf="@id/DifficultySelection"
         tools:ignore="TouchTargetSizeCheck" />
 
     <ScrollView
         android:id="@+id/RemarkScrollView"
-        android:layout_width="0dp"
-        android:layout_height="92dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginEnd="35dp"
+        android:layout_width="wrap_content"
+        android:layout_height="180dp"
         android:isScrollContainer="false"
-        app:layout_constraintBottom_toTopOf="@+id/ShowTimer"
+
+        app:layout_constraintBottom_toTopOf="@+id/TimerLayout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/DifficultyLayout"
+        app:layout_constraintTop_toBottomOf="@+id/CurrentArtist"
         tools:ignore="SpeakableTextPresentCheck">
 
         <LinearLayout
@@ -124,9 +123,8 @@
         android:id="@+id/DifficultyLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="89dp"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/RemarkScrollView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CurrentArtist">
 
@@ -154,7 +152,7 @@
         android:id="@+id/TimerLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="14dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/DeleteSong"
         app:layout_constraintEnd_toEndOf="parent"
