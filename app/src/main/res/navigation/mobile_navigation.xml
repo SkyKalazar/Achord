@@ -12,7 +12,7 @@
         tools:layout="@layout/songs_fragment" >
         <action
             android:id="@+id/action_nav_songs_to_nav_AddSong"
-            app:destination="@id/nav_AddSong" />
+            app:destination="@id/nav_addSong" />
         <action
             android:id="@+id/action_nav_songs_to_nav_songDetailsFragment"
             app:destination="@id/nav_songDetailsFragment" />
@@ -30,7 +30,7 @@
         android:label="@string/menu_videos"
         tools:layout="@layout/videos_fragment" />
     <fragment
-        android:id="@+id/nav_AddSong"
+        android:id="@+id/nav_addSong"
         android:name="com.skykalazar.achord.View.AddSong.AddSongFragment"
         android:label="Add song"
         tools:layout="@layout/add_song_fragment" >
