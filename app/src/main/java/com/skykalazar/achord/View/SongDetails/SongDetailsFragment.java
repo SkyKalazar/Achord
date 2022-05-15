@@ -63,9 +63,12 @@ public class SongDetailsFragment extends Fragment {
         isFavourite.setChecked(songsViewModel.isFavourite());
         remark.setText(songsViewModel.getRemark());
 
-        ArrayAdapter<CharSequence> difficultiesAdapter = ArrayAdapter.createFromResource(binding.getRoot().getContext(), R.array.difficulty, android.R.layout.simple_spinner_item);
-        difficultiesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        difficulty.setAdapter(difficultiesAdapter);
+        ArrayAdapter<CharSequence> difAdapter = ArrayAdapter.createFromResource(binding.getRoot().getContext(), R.array.difficulty, android.R.layout.simple_spinner_item);
+        difAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        difficulty.setAdapter(difAdapter);
+
+        int position = difAdapter.getPosition(songsViewModel.getDifficulty());
+        difficulty.setSelection(position);
 
     }
 
@@ -78,6 +81,7 @@ public class SongDetailsFragment extends Fragment {
             songsViewModel.setArtist(currentArtist.getText().toString());
             songsViewModel.setFavourite(isFavourite.isChecked());
             songsViewModel.setRemark(remark.getText().toString());
+            songsViewModel.setDifficulty(difficulty.getSelectedItem().toString());
             NavHostFragment.findNavController(SongDetailsFragment.this).navigate(R.id.details_to_home);
         });
         binding.DeleteSong.setOnClickListener(view13 ->
