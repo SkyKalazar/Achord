@@ -1,8 +1,6 @@
 package com.skykalazar.achord.ViewModel;
 
 import android.app.Application;
-import android.os.SystemClock;
-
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -18,13 +16,11 @@ public class SongsViewModel extends AndroidViewModel {
 
     private final SongsRepository repository;
     private MutableLiveData<Song> currentSong;
-    private long timerBase;
 
     public SongsViewModel(Application app) {
         super(app);
         repository = SongsRepository.getInstance(app);
         currentSong = new MutableLiveData<>();
-        timerBase = SystemClock.elapsedRealtime();
     }
 
     public LiveData<List<Song>> getSongs() {
@@ -123,10 +119,4 @@ public class SongsViewModel extends AndroidViewModel {
         updateSong();
     }
 
-    public long getTimerBase() {
-        return timerBase;
-    }
-    public void setTimerBase(long timerBase) {
-        this.timerBase = timerBase;
-    }
 }

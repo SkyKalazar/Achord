@@ -67,21 +67,10 @@ public class TimerFragment extends Fragment {
         binding.ResetTimer.setOnClickListener(this::resetTimer);
         binding.SaveTimer.setOnClickListener(view1 -> {
             songsViewModel.incrementTimer(elapsedTime);
-            resetTimer(view1);
             NavHostFragment.findNavController(TimerFragment.this).navigate(R.id.action_from_timer_to_details);
         });
     }
-    @Override
-    public void onPause() {
-        super.onPause();
-        songsViewModel.setTimerBase(timer.getBase());
-    }
-    @Override
-    public void onResume() {
-        super.onResume();
-        elapsedTime = SystemClock.elapsedRealtime() - songsViewModel.getTimerBase();
-        startTimer(getView());
-    }
+
 
     @Override
     public void onDestroyView() {
